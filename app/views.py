@@ -27,6 +27,12 @@ def about():
     return render_template('about.html', name="Mary Jane")
 
 
+
+@app.route("/property", methods=["GET","POST"])
+def property():
+    form = PropertyForm()
+    ptype = ['House', 'Apartment']
+    return render_template("property.html",form=form,ptype=ptype)
 ###
 # The functions below should be applicable to all Flask apps.
 ###

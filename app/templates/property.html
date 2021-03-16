@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class="property-form">
+    <h2> Add Property Form </h2>
+
+    <form action="{{ url_for('property') }}" method="post">
+      {{ form.csrf_token }}
+      <div class="form-group">
+        {{ form.ptitle.label }}
+        {{ form.ptitle(class='form-control') }}
+      </div>
+      <div class="form-group">
+        {{ form.description.label }}
+        {{ form.description(class='form-control') }}
+      </div>
+
+      <div class="form-group">
+        {{ form.rooms.label }}
+        {{ form.rooms(class='form-control', placeholder="3") }}
+      </div>
+
+      <div class="form-group">
+        {{ form.bathrooms.label }}
+        {{ form.bathrooms(class='form-control' , placeholder="5") }}
+      </div>
+
+      <div class="form-group">
+        {{ form.price.label }}
+        {{ form.price(class='form-control' , placeholder="15,000,000") }}
+      </div>
+
+     
+        {{ form.ptype.label }} 
+        <div class="form-group">
+        <select name="ptype"> 
+            {% for ptype in ptype %}
+            <option value= "{{ptype}}" SELECTED>{{ptype}}</option>"
+            {% endfor %}
+        </select>
+      </div>
+
+      
+      <div class="form-group">
+        {{ form.location.label }}
+        {{ form.location(class='form-control' , placeholder="10 Waterloo Road") }}
+      </div>
+
+      <form action="{{ url_for('property') }}" method="POST" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <div class="form-group">
+         
+      
+          {{ form.photo.label }}
+          {{ form.photo(class="form-control") }}
+      
+      </div>
+
+
+
+
+      <button type="submit" name="submit" class="btn btn-primary btn-block">Add Property</button>
+    </form>
+  </div>
+</div>
+
+
+
+{% endblock %}
