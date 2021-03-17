@@ -4,8 +4,8 @@
 
 <div class="property-form">
     <h2> Add Property Form </h2>
-
-    <form action="{{ url_for('property') }}" method="post">
+    {% include 'flash_messages.html' %}
+    <form action="{{ url_for('property') }}" method="POST" enctype="multipart/form-data">
       {{ form.csrf_token }}
       <div class="form-group">
         {{ form.ptitle.label }}
@@ -47,23 +47,20 @@
         {{ form.location(class='form-control' , placeholder="10 Waterloo Road") }}
       </div>
 
-      <form action="{{ url_for('property') }}" method="POST" enctype="multipart/form-data">
-        {{ form.csrf_token }}
+    
         <div class="form-group">
          
-      
           {{ form.photo.label }}
-          {{ form.photo(class="form-control") }}
-      
+          {{ form.photo(class="form-control") }} 
       </div>
 
-
-
-
+      
       <button type="submit" name="submit" class="btn btn-primary btn-block">Add Property</button>
     </form>
+
+   
   </div>
-</div>
+
 
 
 
