@@ -4,11 +4,13 @@ Jinja2 Documentation:    http://jinja.pocoo.org/2/documentation/
 Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
 This file creates your application.
 """
-
+import os
 from app import app,db
 from flask import render_template, request, redirect, url_for,flash
 from app.forms import PropertyForm
-from app.models import UserProfile
+from app.models import PropertyProfile
+from werkzeug.utils import secure_filename
+from app.config import *
 
 
 ###
@@ -32,6 +34,24 @@ def about():
 def property():
     form = PropertyForm()
     ptype = ['House', 'Apartment']
+    if form.validate_on_submit:
+        photo = form.photo.data
+        filename = secure_filename(photo.filename)
+        print(filename)
+        photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+        user = PropertyProfile(ptitle = form.ptitle.data, pdescription = form.description.data, rooms=form.rooms.data,
+        bathrooms=form.bathrooms.data,price=form.price.data,ptype=form.ptype.data,location=form.location.data)
+        
+        db.session.add(user)
+        db.session.commit()
+        flash("Property Added")
+
+    else:
+        flash("Something went wrong.Try Again")
+
+
+    
     return render_template("property.html",form=form,ptype=ptype)
 ###
 # The functions below should be applicable to all Flask apps.

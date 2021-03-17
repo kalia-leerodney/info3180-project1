@@ -10,3 +10,4 @@ Flask-SQLAlchemy
 Flask-Migrate
 Flask-Script
 WTForms==2.3.3
+psycopg2
