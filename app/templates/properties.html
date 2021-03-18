@@ -5,12 +5,12 @@
 <h1> Properties </h1>
 
 {% for user in users: %}
-{% for x in imageList: %}
+
 <ul class="allproperties">
    
-    {% if user.index == x.index %}  {% endif %}
+    
 
-    <img src="{{ url_for('get_image', filename=x) }}" />
+    <img src="{{ url_for('get_image', filename=user.filename) }}" />
     <li>  {{ user.ptitle  }}  </li>
     <li> {{ user.location  }} </li>
     <li> {{ user.price }} </li>
@@ -22,17 +22,8 @@
 
 
     {% endfor %}
-    {% endfor %}
-  
 
-    
-
-
-    
-    
-
-
-
+ 
 
 {% endblock %}
 
