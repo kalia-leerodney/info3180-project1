@@ -56,6 +56,36 @@ def property():
 
     
     return render_template("property.html",form=form,ptype=ptype)
+
+
+@app.route("/properties")
+def properties():
+    users = PropertyProfile.query.all()
+    imageList = get_upload_images()
+    return render_template("properties.html", users=users, imageList=imageList)
+
+def get_upload_images():
+    rootdir = os.getcwd()
+    fList = []
+    for subdir, dirs, files in os.walk(rootdir + '/uploads'):
+        for file in files:
+            fList.append(file)       
+    return fList
+
+@app.route("/properties/<filename>")
+def get_image(filename):
+    rootdir = os.getcwd()
+    return send_from_directory(rootdir + "/" + app.config['UPLOAD_FOLDER'],
+filename)
+
+
+
+
+
+
+
+
+
 ###
 # The functions below should be applicable to all Flask apps.
 ###

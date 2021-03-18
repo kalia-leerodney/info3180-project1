@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<h1> Properties </h1>
+
+{% for user in users: %}
+{% for x in imageList: %}
+<ul class="allproperties">
+   
+    {% if user.index == x.index %}  {% endif %}
+
+    <img src="{{ url_for('get_image', filename=x) }}" />
+    <li>  {{ user.ptitle  }}  </li>
+    <li> {{ user.location  }} </li>
+    <li> {{ user.price }} </li>
+   
+    
+    <button type="submit" name="view"> View Property </button>
+   
+</ul>
+
+
+    {% endfor %}
+    {% endfor %}
+  
+
+    
+
+
+    
+    
+
+
+
+
+{% endblock %}
+
