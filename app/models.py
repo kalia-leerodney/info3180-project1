@@ -17,9 +17,10 @@ class PropertyProfile(db.Model):
     price = db.Column(db.String(255))
     ptype = db.Column(db.String(255))
     location = db.Column(db.String(255))
+    filename = db.Column(db.String(500))
 
 
-    def __init__(self,ptitle,pdescription,rooms,bathrooms,price,ptype,location):
+    def __init__(self,ptitle,pdescription,rooms,bathrooms,price,ptype,location,filename):
         self.ptitle = ptitle
         self.pdescription = pdescription
         self.rooms = rooms
@@ -27,6 +28,7 @@ class PropertyProfile(db.Model):
         self.price = price
         self.ptype = ptype
         self.location = location
+        self.filename = filename
         
     def is_authenticated(self):
         return True

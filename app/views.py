@@ -38,14 +38,15 @@ def property():
         if form.validate_on_submit:
             photo = form.photo.data
             filename = secure_filename(photo.filename)
-            print(filename)
+            #print(filename)
+            rootdir = os.getcwd()
             photo.save(os.path.join(
             app.config['UPLOAD_FOLDER'], filename
             ))
 
             user = PropertyProfile(ptitle = form.ptitle.data, pdescription = form.description.data, rooms=form.rooms.data,
-            bathrooms=form.bathrooms.data,price=form.price.data,ptype=form.ptype.data,location=form.location.data)
-        
+            bathrooms=form.bathrooms.data,price=form.price.data,ptype=form.ptype.data,location=form.location.data,filename=send_from_directory(rootdir + "/" + app.config['UPLOAD_FOLDER'],
+filename))
             db.session.add(user)
             db.session.commit()
             flash("Property Added")
