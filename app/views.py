@@ -39,14 +39,12 @@ def property():
             photo = form.photo.data
             filename = secure_filename(photo.filename)
             #print(filename)
-            rootdir = os.getcwd()
             photo.save(os.path.join(
             app.config['UPLOAD_FOLDER'], filename
             ))
 
             user = PropertyProfile(ptitle = form.ptitle.data, pdescription = form.description.data, rooms=form.rooms.data,
-            bathrooms=form.bathrooms.data,price=form.price.data,ptype=form.ptype.data,location=form.location.data,filename=send_from_directory(rootdir + "/" + app.config['UPLOAD_FOLDER'],
-filename))
+            bathrooms=form.bathrooms.data,price=form.price.data,ptype=form.ptype.data,location=form.location.data,filename=filename)
             db.session.add(user)
             db.session.commit()
             flash("Property Added")
@@ -62,29 +60,15 @@ filename))
 @app.route("/properties")
 def properties():
     users = PropertyProfile.query.all()
-    imageList = get_upload_images()
     return render_template("properties.html", users=users)
 
-def get_upload_images():
-    rootdir = os.getcwd()
-    fList = []
-    for subdir, dirs, files in os.walk(rootdir + '/uploads'):
-        for file in files:
-            fList.append(file)       
-    return fList
+
 
 @app.route("/properties/<filename>")
 def get_image(filename):
     rootdir = os.getcwd()
     return send_from_directory(rootdir + "/" + app.config['UPLOAD_FOLDER'],
 filename)
-
-
-
-
-
-
-
 
 
 ###
