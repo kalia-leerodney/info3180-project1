@@ -63,7 +63,7 @@ filename))
 def properties():
     users = PropertyProfile.query.all()
     imageList = get_upload_images()
-    return render_template("properties.html", users=users, imageList=imageList)
+    return render_template("properties.html", users=users)
 
 def get_upload_images():
     rootdir = os.getcwd()
