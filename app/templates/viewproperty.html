@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+
+<div class="property">
+    <img src="{{ url_for('get_image', filename=user.filename) }}" />
+    <div>  {{ user.ptitle  }} </div>
+    <div>  {{ user.price  }} </div>
+    <div>  {{ user.ptype  }} </div>
+    <div>  {{ user.pdescription  }} </div>
+    <div>  {{ user.rooms  }}  Bedrooms </div>
+
+    <div>  {{ user.bathrooms  }}  Bathrooms </div>
+    <div>  {{ user.location  }} </div>
+    <button> Email Realtor </button>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

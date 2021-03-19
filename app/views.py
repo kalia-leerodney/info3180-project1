@@ -64,11 +64,18 @@ def properties():
 
 
 
-@app.route("/properties/<filename>")
+@app.route("/images/<filename>")
 def get_image(filename):
     rootdir = os.getcwd()
     return send_from_directory(rootdir + "/" + app.config['UPLOAD_FOLDER'],
 filename)
+
+
+@app.route("/properties/<propertyid>")
+def viewproperty(propertyid):
+    user = PropertyProfile.query.get(propertyid)
+    return render_template("viewproperty.html",user=user)
+
 
 
 ###

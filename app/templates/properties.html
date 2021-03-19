@@ -16,7 +16,7 @@
     <li> {{ user.price }} </li>
    
     
-    <button type="submit" name="view"> View Property </button>
+    <a href="{{ url_for('viewproperty' , propertyid=user.id)}}"> View Property </a>
    
 </ul>
 
