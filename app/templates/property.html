@@ -3,59 +3,68 @@
 {% block main %}
 
 <div class="property-form">
-    <h2> Add Property Form </h2>
+    <h1> Add Property Form </h1>
     {% include 'flash_messages.html' %}
     <form action="{{ url_for('property') }}" method="POST" enctype="multipart/form-data">
       {{ form.csrf_token }}
-      <div class="form-group">
+      <div class="form-group" id="ptitle">
         {{ form.ptitle.label }}
         {{ form.ptitle(class='form-control') }}
       </div>
-      <div class="form-group">
+      <div class="form-group" id="description">
         {{ form.description.label }}
         {{ form.description(class='form-control') }}
       </div>
 
-      <div class="form-group">
-        {{ form.rooms.label }}
-        {{ form.rooms(class='form-control', placeholder="3") }}
-      </div>
+      <div id="roomsandbathrooms">
+        <div class="form-group" id="rooms">
+          {{ form.rooms.label }}
+          {{ form.rooms(class='form-control', placeholder="3") }}
+        </div>
+  
+        <div class="form-group" id="bathrooms">
+          {{ form.bathrooms.label }}
+          {{ form.bathrooms(class='form-control' , placeholder="5") }}
+        </div>
 
-      <div class="form-group">
-        {{ form.bathrooms.label }}
-        {{ form.bathrooms(class='form-control' , placeholder="5") }}
-      </div>
+        <div class="form-group" id="price">
+          {{ form.price.label }}
+          {{ form.price(class='form-control' , placeholder="15,000,000") }}
+        </div>
+  
+          <div id="ptype">
+            {{ form.ptype.label }} 
+          <div class="form-group">
+          <select name="ptype"> 
+              {% for ptype in ptype %}
+              <option value= "{{ptype}}" SELECTED>{{ptype}}</option>"
+              {% endfor %}
+          </select>
+        </div>
+  
+          </div>
+  
 
-      <div class="form-group">
-        {{ form.price.label }}
-        {{ form.price(class='form-control' , placeholder="15,000,000") }}
       </div>
-
-     
-        {{ form.ptype.label }} 
-        <div class="form-group">
-        <select name="ptype"> 
-            {% for ptype in ptype %}
-            <option value= "{{ptype}}" SELECTED>{{ptype}}</option>"
-            {% endfor %}
-        </select>
-      </div>
+      
+      
+        
 
       
-      <div class="form-group">
+      <div class="form-group" id="location">
         {{ form.location.label }}
         {{ form.location(class='form-control' , placeholder="10 Waterloo Road") }}
       </div>
 
     
-        <div class="form-group">
+        <div class="form-group" id="photo">
          
           {{ form.photo.label }}
           {{ form.photo(class="form-control") }} 
       </div>
 
       
-      <button type="submit" name="submit" class="btn btn-primary btn-block">Add Property</button>
+      <button type="submit" name="submit" class="btn btn-primary btn-block" id="apbutton">Add Property</button>
     </form>
 
    
