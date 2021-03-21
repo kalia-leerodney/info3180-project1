@@ -11,6 +11,10 @@ h1{
     width:850px;
 }
 
+#description{
+    height:100px;
+}
+
 
 .property-form{
     font-weight:bold;
@@ -18,7 +22,7 @@ h1{
 
 form{
     background-color: white;
-    padding:20px;
+    padding:50px;
 }
 
 #rooms,#bathrooms,#price,#location{
@@ -29,6 +33,7 @@ form{
     display: grid;
     grid-template-columns: 200px 200px;
     column-gap: 400px;
+    padding-top: 30px;
 
 }
 select{
@@ -45,6 +50,143 @@ select{
 #apbutton{
     width:200px;
 }
+
+
+img{
+    width:370px;
+    height:200px;
+}
+
+.allproperties{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
+}
+
+.singleproperty{
+    background-color: white;
+    text-align: center;
+}
+
+.usertitle,.userprice,.userlocation{
+    text-align: left;
+    padding-left:10px;
+}
+
+.usertitle{
+    font-weight:bold;
+}
+
+.userlocation img{
+    width:20px;
+    height:20px;
+}
+
+.userprice{
+    background-color:#007bff;;
+    width:105px;
+    margin-bottom:10px;
+    border-radius:15px;
+    margin-left:20px;
+    color:white;
+    margin-top:5px;
+   
+    
+}
+
+#viewprop{
+    background-color:turquoise;
+    color: white;
+    width:100%;  
+}
+
+.property{
+    display:grid;
+    grid-template-columns: 370px 370px;
+    padding-top:100px;
+    margin-left:200px;
+}
+
+.property img{
+    width:370px;
+    height:300px;
+}
+
+.propinfo{
+    background-color: white;
+    margin-right:100px;
+    width:450px;
+    padding-left:20px;
+    
+ 
+}
+.propinfo img{
+    width:20px;
+    height:20px;
+}
+
+.usertitleinfo{
+    font-weight: bold;
+    font-size: medium;
+    padding-top: 10px;
+}
+
+.priceandtype{
+    display:grid;
+    grid-template-columns: 105px 105px;
+    column-gap:1px;
+    padding-top: 10px;
+}
+
+.priceandtype #theprice{
+    background-color: #007bff;
+    width:95px;
+    text-align: center;
+    color:white;
+    border-radius:15px;
+}
+
+.priceandtype #thetype{
+    background-color: #ffc107;
+    width:95px;
+    color:white;
+    text-align: center;
+    border-radius:15px;
+    margin-right:40px;
+}
+
+.userdescriptioninfo{
+  padding-top:15px;
+}
+
+#viewrandb{
+    display:grid;
+    grid-template-columns:140px 140px;
+    padding-top: 10px;
+}
+
+#locationinfo{
+    padding-top:15px;
+}
+
+.propinfo button{
+    width:150px;
+    height:40px;
+    margin-top:20px;
+    background-color: turquoise;
+    color:white;
+    border-radius: 4px;
+
+}
+
+
+
+
+
+
+
+
+
 
 
 

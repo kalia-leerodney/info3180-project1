@@ -4,24 +4,41 @@
 
 <h1> Properties </h1>
 
-{% for user in users: %}
 
-<ul class="allproperties">
+
+<div class="allproperties">
+  
+    {% for user in users: %}
    
+    <div class="singleproperty">
+
+        <img src="{{ url_for('get_image', filename=user.filename) }}" />
+        <div class="usertitle">  {{ user.ptitle  }}  </div>
+
+        <div class="userlocation"> 
+            <img src="{{ url_for('static' , filename='location.png')}}"> 
+            {{ user.location  }} 
+        </div>
+
+        <div class="userprice"> ${{ user.price }} </div>
+
+        <a href="{{ url_for('viewproperty' , propertyid=user.id)}}" class="btn" id="viewprop"> View Property </a>
     
 
-    <img src="{{ url_for('get_image', filename=user.filename) }}" />
-    <li>  {{ user.ptitle  }}  </li>
-    <li> {{ user.location  }} </li>
-    <li> {{ user.price }} </li>
-   
-    
-    <a href="{{ url_for('viewproperty' , propertyid=user.id)}}"> View Property </a>
-   
-</ul>
 
+    </div>
 
     {% endfor %}
+
+   
+   
+   
+</div>
+
+
+
+
+  
 
  
 
