@@ -71,7 +71,7 @@ def get_image(filename):
 filename)
 
 
-@app.route("/properties/<propertyid>")
+@app.route("/property/<propertyid>")
 def viewproperty(propertyid):
     user = PropertyProfile.query.get(propertyid)
     return render_template("viewproperty.html",user=user)
