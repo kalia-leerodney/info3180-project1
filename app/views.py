@@ -48,6 +48,7 @@ def property():
             db.session.add(user)
             db.session.commit()
             flash("Property Added")
+            return redirect(url_for("properties"))
 
         else:
             flash("Something went wrong.Try Again")
